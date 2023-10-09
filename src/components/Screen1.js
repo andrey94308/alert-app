@@ -37,7 +37,7 @@ const Screen1 = () => {
               <td>{user.time}</td>
               <td>{user.status}</td>
               <td>{user.comment}</td>
-              <td><button onClick={() => deleteUser(index)}>Delete</button></td>
+              <td><button onClick={() => deleteUser(user.id)}>Delete</button></td>
             </tr>
           ))}
         </tbody>
