@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import { useUsers } from '../UserContext';
+import { useNavigate } from 'react-router-dom';
 
 const Screen1 = () => {
+  const navigate = useNavigate();
   const { users, addUser, deleteUser } = useUsers();
-  const [newUser, setNewUser] = useState('');
+  const [userName, setNewUserName] = useState('');
+
+  const goToScreen2 = (id) => {
+    navigate(`/user-status/:${id}`);
+  } 
 
   return (
     <div>
       <input 
         type="text" 
-        value={newUser} 
-        onChange={(e) => setNewUser(e.target.value)} 
+        value={userName} 
+        onChange={(e) => setNewUserName(e.target.value)} 
         placeholder="Enter User Name" 
       />
-      <button onClick={addUser}>Add</button>
+      <button onClick={() => addUser(userName)}>Add</button>
       <table>
         <thead>
           <tr>
@@ -27,7 +33,7 @@ const Screen1 = () => {
         <tbody>
           {users.map((user, index) => (
             <tr key={index}>
-              <td>{user.name}</td>
+              <td onClick={() => goToScreen2(user.id)}>{user.name}</td>
               <td>{user.time}</td>
               <td>{user.status}</td>
               <td>{user.comment}</td>

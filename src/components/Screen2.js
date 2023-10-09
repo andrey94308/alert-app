@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import { useUsers } from '../UserContext';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Screen2 = ({ userId }) => {
+
+const Screen2 = () => {
+  const navigate = useNavigate();
+  const { id } = useParams(); // Get the id parameter from the URL
   const { updateUserStatus } = useUsers();
   const [comment, setComment] = useState('');
 
   const handleImOkay = () => {
-    updateUserStatus(userId, 'okay', new Date().toISOString(), '');
+    updateUserStatus(id.slice(1), 'okay', '');
+    navigate('/');
   };
 
   const handleINeedHelp = () => {
-    updateUserStatus(userId, 'Need help', new Date().toISOString(), comment);
+    updateUserStatus(id.slice(1), 'Need help', comment);
+    navigate('/');
   };
 
   return (
