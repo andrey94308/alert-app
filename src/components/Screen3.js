@@ -1,11 +1,11 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Screen3 = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const goBack = () => {
-    history.goBack();
+    navigate(-1);
   };
 
   return (
