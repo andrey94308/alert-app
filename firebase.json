@@ -3,7 +3,7 @@
     "source": "functions"
   },
   "hosting": {
-    "public": "src",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -12,7 +12,7 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/index.js"
+        "destination": "/index.html"
       }
     ]
   }
