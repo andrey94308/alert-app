@@ -1,24 +1,26 @@
 import React, { useState } from 'react';
 import { useUsers } from '../UserContext';
 
-const Screen2 = ({ match, history }) => {
+const Screen2 = ({ userId }) => {
   const { updateUserStatus } = useUsers();
   const [comment, setComment] = useState('');
 
-  const submitStatus = (status) => {
-    updateUserStatus(match.params.id, status, comment);
-    history.push('/thanks');
+  const handleImOkay = () => {
+    updateUserStatus(userId, 'okay', new Date().toISOString(), '');
+  };
+
+  const handleINeedHelp = () => {
+    updateUserStatus(userId, 'Need help', new Date().toISOString(), comment);
   };
 
   return (
     <div>
-      <button onClick={() => submitStatus('Okay')}>I'm okay</button>
-      <textarea 
-        value={comment} 
-        onChange={(e) => setComment(e.target.value)} 
-        placeholder="Your Comment"
+      <button onClick={handleImOkay}>I'm okay</button>
+      <textarea
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
       ></textarea>
-      <button onClick={() => submitStatus('Need Help')}>I need help</button>
+      <button onClick={handleINeedHelp}>I need help</button>
     </div>
   );
 };

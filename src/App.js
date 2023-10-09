@@ -9,15 +9,15 @@ import { UserProvider } from "./UserContext";
 function App() {
   return (
     <UserProvider>
-      <div className="App">
-        <Router>
+      <Router>
+        <div className="App">
           <Routes>
-            <Route path="/" exact component={Screen1} />
-            <Route path="/user-status/:id" component={Screen2} />
-            <Route path="/thanks" component={Screen3} />
+            <Route path="/" element={<Screen1 />} />
+            <Route path="/user-status/:id" element={<Screen2 />} />
+            <Route path="/thanks" element={<Screen3 />} />
           </Routes>
-        </Router>
-      </div>
+        </div>
+      </Router>
     </UserProvider>
   );
 }

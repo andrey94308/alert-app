@@ -10,7 +10,7 @@ const Screen3 = () => {
 
   return (
     <div>
-      <h1>Спасибо, статус отправлен</h1>
+      <h1>Thank you, status has been sent!</h1>
       <button onClick={goBack}>Back</button>
     </div>
   );
