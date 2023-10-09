@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Screen1 from './components/Screen1';
+import Screen2 from './components/Screen2';
+import Screen3 from './components/Screen3';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { UserProvider } from './UserContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider>
+      <div className="App">
+        <Router>
+          <Route path="/" exact component={Screen1} />
+          <Route path="/user-status/:id" component={Screen2} />
+          <Route path="/thanks" component={Screen3} />
+        </Router>
+      </div>
+    </UserProvider>
   );
 }
 
