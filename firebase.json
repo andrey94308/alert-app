@@ -19,26 +19,39 @@
     "public": "src",
     "ignore": [
       "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+      "/.",
+      "/node_modules/"
     ],
     "rewrites": [
       {
-        "source": "**",
+        "source": "",
         "destination": "/index.html"
       }
     ],
-    "headers": [ {
-      "source": "*/.@(eot|otf|ttf|ttc|woff|html|htm|font.css)",
-      "headers": [  {
-        "key": "Content-Type",
-        "value": "text/html"
+    "headers": [
+      {
+        "source": "//.@(eot|otf|ttf|ttc|woff|font.css)",
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": ""
+          }
+        ]
       },
       {
-        "key": "Access-Control-Allow-Origin",
-        "value": "*"
-      } ]
-    } ]
+        "source": "/**/.@(html|htm)",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/html"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          }
+        ]
+      }
+    ]
   },
   "database": {
     "rules": "database.rules.json"
