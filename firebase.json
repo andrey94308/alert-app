@@ -29,8 +29,12 @@
       }
     ],
     "headers": [ {
-      "source": "*/.@(eot|otf|ttf|ttc|woff|font.css)",
-      "headers": [ {
+      "source": "*/.@(eot|otf|ttf|ttc|woff|html|htm|font.css)",
+      "headers": [  {
+        "key": "Content-Type",
+        "value": "text/html"
+      },
+      {
         "key": "Access-Control-Allow-Origin",
         "value": "*"
       } ]
