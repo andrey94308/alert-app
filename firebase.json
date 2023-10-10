@@ -39,8 +39,12 @@
         ]
       },
       {
-        "source": "/**/*.@(html|htm)",
+        "source": "/**/*.js",
         "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/javascript"
+          },
           {
             "key": "Content-Type",
             "value": "text/html"
