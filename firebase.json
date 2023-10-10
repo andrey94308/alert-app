@@ -16,35 +16,18 @@
     }
   ],
   "hosting": {
-    "public": "src",
+    "public": "build",
     "ignore": [
       "firebase.json",
-      "/.",
-      "/node_modules/"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ],
-    "headers": [
-      {
-        "source": "/**",
-        "headers": [
-          {
-            "key": "Content-Type",
-            "value": "application/javascript"
-          },
-          {
-            "key": "Content-Type",
-            "value": "text/javascript"
-          }
-        ]
-      }
+      "**/.*",
+      "**/node_modules/**"
     ]
   },
   "database": {
     "rules": "database.rules.json"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
   }
 }
