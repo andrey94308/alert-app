@@ -35,7 +35,7 @@ export const useUsers = () => {
 export const UserProvider = ({ children }) => {
   // const usersFromDb = await getUsersFromDb();
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state
+  // const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
     const getUsersFromDb = async () => {
@@ -43,7 +43,7 @@ export const UserProvider = ({ children }) => {
       const usersSnapshot = await getDocs(usersCol);
       const usersList = usersSnapshot.docs.map((doc) => doc.data());
       setUsers(usersList);
-      setLoading(false); // Set loading to false once data is fetched
+      // setLoading(false); // Set loading to false once data is fetched
     };
 
     getUsersFromDb(); // Call the function to fetch users
