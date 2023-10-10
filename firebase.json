@@ -24,22 +24,22 @@
     ],
     "rewrites": [
       {
-        "source": "",
+        "source": "**",
         "destination": "/index.html"
       }
     ],
     "headers": [
       {
-        "source": "//.@(eot|otf|ttf|ttc|woff|font.css)",
+        "source": "/**/*.@(eot|otf|ttf|ttc|woff|font.css)",
         "headers": [
           {
             "key": "Access-Control-Allow-Origin",
-            "value": ""
+            "value": "*"
           }
         ]
       },
       {
-        "source": "/*/.@(html|htm)",
+        "source": "/**/*.@(html|htm)",
         "headers": [
           {
             "key": "Content-Type",
